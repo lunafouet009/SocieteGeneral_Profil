@@ -5,6 +5,7 @@ import Operations from '../Operations/Operations';
 import './App.scss';
 import Home from '../Home/Home';
 import OpeAdd from '../Operations/OpeAdd/OpeAdd';
+import Page404 from '../Page404/Page404';
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
         <Route path="/SocieteGeneral_Profil" element={<Home />} />
         <Route path="/history" element={<Operations />} />
         <Route path="/operation" element={<OpeAdd />} />
+        <Route path="*" element={<Page404 />} />
       </Routes>
       <Footer />
     </div>
