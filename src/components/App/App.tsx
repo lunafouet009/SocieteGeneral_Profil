@@ -11,7 +11,7 @@ function App() {
     <div>
       <Header />
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route path="/SocieteGeneral_Profil" element={<Home />} />
         <Route path="/history" element={<Operations />} />
         <Route path="/operation" element={<OpeAdd />} />
       </Routes>
