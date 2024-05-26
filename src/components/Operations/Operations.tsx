@@ -15,7 +15,7 @@ import OpeVirRe from './OpeVirRe/OpeVirRe';
 import { useAppSelector } from '../../hooks/redux';
 
 function Operations() {
-  const { operations } = useAppSelector((state) => state.operation);
+  const operations = useAppSelector((state) => state.operations);
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);

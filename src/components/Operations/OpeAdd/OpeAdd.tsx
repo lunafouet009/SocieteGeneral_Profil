@@ -11,7 +11,7 @@ function OpeAdd() {
   const dispatch = useAppDispatch();
 
   const { type, description, price, dateEffect, dateCompt, libel } =
-    useAppSelector((state) => state.operation.input);
+    useAppSelector((state) => state.input);
 
   useEffect(() => {
     window.scrollTo(0, 0);
