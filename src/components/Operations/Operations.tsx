@@ -12,17 +12,31 @@ import Ope from './Ope/Ope';
 import Date from './Date/Date';
 import OpeVirEm from './OpeVirEm/OpeVirEm';
 import OpeVirRe from './OpeVirRe/OpeVirRe';
-import { useAppSelector } from '../../hooks/redux';
+import { useAppDispatch, useAppSelector } from '../../hooks/redux';
+import {
+  actionRemoveOp,
+  actionSwitchDeleteTool,
+} from '../../store/reducer/operation';
 
 function Operations() {
+  const dispatch = useAppDispatch();
   const operations = useAppSelector((state) => state.operations);
+
+  const removeOperation = (id: number) => {
+    dispatch(actionRemoveOp({ id }));
+  };
+
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
+
+  const handleClick = () => {
+    dispatch(actionSwitchDeleteTool());
+  };
   return (
     <div className="operation">
       <div className="operation_header">
-        <Link to="/" className="operation_header_link">
+        <Link to="/SocieteGeneral_Profil" className="operation_header_link">
           <div className="operation_header_left">
             <ArrowLeft />
             <span className="operation_header_left_return">Retour</span>
@@ -63,7 +77,10 @@ function Operations() {
               <h2 className="operation_soldIC_account_container_title">
                 Mes opérations à venir
               </h2>
-              <Info className="operation_soldIC_account_container_info" />
+              <Info
+                className="operation_soldIC_account_container_info"
+                onClick={handleClick}
+              />
             </div>
             <span className="operation_soldIC_account_total">0,00€</span>
           </div>
@@ -82,7 +99,10 @@ function Operations() {
             <h2 className="operation_list_container_title">
               Liste de mes opérations
             </h2>
-            <Link to="/operation" className="operation_list_container_link">
+            <Link
+              to="/SocieteGeneral_Profil/operation"
+              className="operation_list_container_link"
+            >
               <Info className="operation_list_container_info" />
             </Link>
           </div>
@@ -91,46 +111,51 @@ function Operations() {
           {operations.map((operation) => {
             switch (operation.type) {
               case 'date':
-                return <Date date={operation.description} />;
+                return (
+                  <Date
+                    key={operation.id}
+                    id={operation.id}
+                    date={operation.description}
+                    removeOperation={removeOperation}
+                  />
+                );
               case 'shop':
                 return (
                   <Ope
+                    key={operation.id}
+                    id={operation.id}
                     description={operation.description}
                     price={operation.price}
+                    removeOperation={removeOperation}
                   />
                 );
               case 'income':
                 return (
                   <OpeVirEm
+                    key={operation.id}
+                    id={operation.id}
                     description={operation.description}
                     price={operation.price}
+                    removeOperation={removeOperation}
                   />
                 );
               case 'outgoing':
                 return (
                   <OpeVirRe
+                    key={operation.id}
+                    id={operation.id}
                     description={operation.description}
                     price={operation.price}
                     dateEffect={operation.dateEffect}
                     dateCompt={operation.dateCompt}
                     libel={operation.libel}
+                    removeOperation={removeOperation}
                   />
                 );
               default:
                 return null;
             }
           })}
-          {/* <Date date="Vendredi 24 mai 2024" />
-          <Ope description="CARTE X1854 24/05 MONOP" price="-11,90" />
-          <Ope description="CARTE X1854 24/05 E.LECLERC" price="-180,65" />
-          <OpeVirEm
-            description="VIR INS RE 458574578521 DE: Cedric Randam DATE: 22/05/2024"
-            price=180,65
-          />
-          <OpeVirRe
-            description="VIR INS RE 458574578521 A: Cedric Randam DATE: 22/05/2024"
-            price=-980,20
-          /> */}
         </div>
       </div>
     </div>

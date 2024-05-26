@@ -13,6 +13,8 @@ function OpeAdd() {
   const { type, description, price, dateEffect, dateCompt, libel } =
     useAppSelector((state) => state.input);
 
+  const id = useAppSelector((state) => state.operations.length);
+
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
@@ -22,7 +24,15 @@ function OpeAdd() {
 
     dispatch(
       actionAddOp({
-        operation: { type, description, price, dateEffect, dateCompt, libel },
+        operation: {
+          id,
+          type,
+          description,
+          price,
+          dateEffect,
+          dateCompt,
+          libel,
+        },
       })
     );
   };
@@ -129,7 +139,7 @@ function OpeAdd() {
         </fieldset>
 
         <button type="submit">Valider</button>
-        <Link className="link" to="/history">
+        <Link className="link" to="/SocieteGeneral_Profil/history">
           <button type="button">Retour</button>
         </Link>
       </form>

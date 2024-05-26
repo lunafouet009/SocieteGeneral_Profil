@@ -9,7 +9,7 @@ function Home() {
       <h3 className="home_title">Mes comptes</h3>
       <div className="home_bank">
         <h2 className="home_bank_title">COMPTES BANCAIRES</h2>
-        <Link to="/history" className="home_bank_link">
+        <Link to="/SocieteGeneral_Profil/history" className="home_bank_link">
           <div className="home_bank_part1">
             <div className="home_bank_part1_color" />
             <div className="home_bank_part1_top">

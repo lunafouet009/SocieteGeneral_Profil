@@ -13,8 +13,8 @@ function App() {
       <Header />
       <Routes>
         <Route path="/SocieteGeneral_Profil" element={<Home />} />
-        <Route path="/history" element={<Operations />} />
-        <Route path="/operation" element={<OpeAdd />} />
+        <Route path="/SocieteGeneral_Profil/history" element={<Operations />} />
+        <Route path="/SocieteGeneral_Profil/operation" element={<OpeAdd />} />
         <Route path="*" element={<Page404 />} />
       </Routes>
       <Footer />

@@ -1,6 +1,7 @@
-import { createAction, createReducer, createSlice } from '@reduxjs/toolkit';
+import { PayloadAction, createSlice } from '@reduxjs/toolkit';
 
 interface OpeI {
+  id: null | number;
   type: 'date' | 'shop' | 'income' | 'outgoing';
   description: string;
   price: number | null;
@@ -12,11 +13,27 @@ interface OpeI {
 interface OperationsI {
   operations: OpeI[];
   input: OpeI;
+  deleteToolIsOpen: boolean;
+}
+
+interface ActionI {
+  payload: {
+    name:
+      | 'type'
+      | 'description'
+      | 'price'
+      | 'dateEffect'
+      | 'dateCompt'
+      | 'libel';
+    value: string | number;
+  };
+  type: string;
 }
 
 export const initialState: OperationsI = {
   operations: [],
   input: {
+    id: null,
     type: 'date',
     description: '',
     price: null,
@@ -24,16 +41,21 @@ export const initialState: OperationsI = {
     dateCompt: '',
     libel: '',
   },
+  deleteToolIsOpen: false,
 };
 
 const operationSlice = createSlice({
   name: 'operation',
   initialState,
   reducers: {
-    actionAddOp: (state, action) => {
+    actionAddOp: (state, action: PayloadAction<{ operation: OpeI }>) => {
       state.operations.push(action.payload.operation);
     },
-    actionChangeOperation: (state, action) => {
+    actionRemoveOp: (state, action) => {
+      const { id } = action.payload;
+      state.operations = state.operations.filter((op) => op.id !== id);
+    },
+    actionChangeOperation: (state, action: ActionI) => {
       if (action.payload.name) {
         if (action.payload.name === 'price') {
           state.input.price = action.payload.value as number;
@@ -52,50 +74,18 @@ const operationSlice = createSlice({
             | 'outgoing';
         }
       }
-    }
+    },
+    actionSwitchDeleteTool: (state) => {
+      state.deleteToolIsOpen = !state.deleteToolIsOpen;
+    },
+  },
+});
 
-  }
-})
-
-export const { actionAddOp, actionChangeOperation } = operationSlice.actions;
-
-// export const actionAddOp = createAction<{
-//   operation: OpeI;
-// }>('ope/ADD_OP');
-// export const actionRemoveOp = createAction('ope/REMOVE_OP');
-// export const actionModifyOp = createAction('ope/MODIFY_OP');
-// export const actionChangeOperation = createAction<{
-//   name: 'type' | 'description' | 'price' | 'dateEffect' | 'dateCompt' | 'libel';
-//   value: string | number;
-// }>('user/CHANGE_CREDENTIAL_SIGNIN');
-
-// const operationReducer = createReducer(initialState, (builder) => {
-//   builder
-//     .addCase(actionAddOp, (state, action) => {
-//       state.operations.push(action.payload.operation);
-//     })
-//     .addCase(actionRemoveOp, (state) => {})
-//     .addCase(actionModifyOp, (state) => {})
-//     .addCase(actionChangeOperation, (state, action) => {
-//       if (action.payload.name) {
-//         if (action.payload.name === 'price') {
-//           state.input.price = action.payload.value as number;
-//         } else if (
-//           action.payload.name === 'description' ||
-//           action.payload.name === 'libel' ||
-//           action.payload.name === 'dateEffect' ||
-//           action.payload.name === 'dateCompt'
-//         ) {
-//           state.input[action.payload.name] = action.payload.value as string;
-//         } else if (action.payload.name === 'type') {
-//           state.input.type = action.payload.value as
-//             | 'date'
-//             | 'shop'
-//             | 'income'
-//             | 'outgoing';
-//         }
-//       }
-//     });
-// });
+export const {
+  actionAddOp,
+  actionRemoveOp,
+  actionChangeOperation,
+  actionSwitchDeleteTool,
+} = operationSlice.actions;
 
 export default operationSlice.reducer;

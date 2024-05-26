@@ -1,24 +1,35 @@
-import { ChevronDown, ChevronUp, ToggleLeft } from 'react-feather';
+import { ChevronDown, ChevronUp, ToggleLeft, Trash2 } from 'react-feather';
 import './OpeVirRe.scss';
 import { useState } from 'react';
 import virmre from '../../../assets/virmentr_white.svg';
+import { useAppSelector } from '../../../hooks/redux';
 
 interface OpeVirReProps {
+  id: number | null;
   description: string;
   price: number | null;
   dateEffect: string;
   dateCompt: string;
   libel: string;
+  removeOperation: (id: number | null) => void;
 }
 
 function OpeVirRe({
+  id,
   description,
   price,
   dateEffect,
   dateCompt,
   libel,
+  removeOperation,
 }: OpeVirReProps) {
   const [contentIsOpen, setContentIsOpen] = useState(false);
+  const deleteToolIsOpen = useAppSelector((state) => state.deleteToolIsOpen);
+
+  const handleRemove = () => {
+    removeOperation(id);
+  };
+
   return (
     <div className="opeVirRe_list">
       <div className="opeVirRe_list_visu">
@@ -45,6 +56,7 @@ function OpeVirRe({
               }}
             />
           )}
+          {deleteToolIsOpen && <Trash2 onClick={handleRemove} />}
         </div>
       </div>
 
