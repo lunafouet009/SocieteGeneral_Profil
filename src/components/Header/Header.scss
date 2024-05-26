@@ -1,0 +1,23 @@
+@use '../../styles/variables';
+
+.header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 1rem;
+  box-shadow: 0px 5px 2px lightgray;
+
+  &_logo {
+    width: 100px;
+  }
+
+  &_logout {
+    width: 1.8rem;
+    height: 1.8rem;
+    padding: 1.5%;
+    border-radius: 50px;
+    color: white;
+    background-color: #FF1D1D;
+  }
+}

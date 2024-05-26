@@ -1,0 +1,44 @@
+.footer {
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 2rem;
+
+  &_part1 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    background-color: black;
+    color: white;
+    padding: 1rem 0;
+    font-weight: 400;
+
+    &_sn {
+      display: flex;
+      flex-direction: row;
+      gap: 1rem;
+
+      &_xlogo {
+        width: 1.5rem;
+        color: white;
+      }
+    }
+  }
+
+  &_part2 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    img {
+      width: 40%;
+    }
+
+    span {
+      font-size: 0.8rem;
+      color: #2F2F2F;
+      font-weight: 500;
+      padding-bottom: 0.3rem;
+    }
+  }
+}

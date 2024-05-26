@@ -1,0 +1,35 @@
+.opeAdd {
+
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+
+    fieldset {
+      position: relative;
+      border: none;
+      display: flex;
+      flex-direction: column;
+
+      input, select {
+        border-radius: 5px;
+        border: 1px rgba(47,47,47,0.5) solid;
+        padding: 0.3rem 0.5rem;
+      }
+    }
+
+    button{
+      display: block;
+      justify-content: center;
+      margin: 1rem 1rem 1rem 1rem;
+      border: 1px solid rgba(47,47,47,0.5);
+      border-radius: 5px;
+      text-decoration: none;
+    }
+
+    .link  {
+      border: none;
+      text-decoration: none;
+    }
+  }
+}

@@ -1,0 +1,261 @@
+.home {
+  padding: 0 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.8rem;
+
+  &_title {
+    font-size: 1rem;
+    margin: 1rem 0;
+  }
+
+  &_bank {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+
+    &_title {
+      font-size: 1rem;
+      font-weight: 600;
+      color: #0055CF;
+    }
+
+    &_link {
+      text-decoration: none;
+      color: black;
+    }
+
+    &_part1 {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      border: 1px solid rgba(47,47,47,0.3);
+      border-radius: 5px;
+      padding: 1rem;
+
+      &_color {
+        position: absolute;
+        top: 0;
+        left: 0;
+        background-color: #0055CF;
+        width: 0.3rem;
+        height: 100%;
+      }
+
+      &_top {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+
+        &_left {
+          h4 {
+            font-size: 0.9rem;
+            font-weight: 700;
+          }
+          span {
+            font-size: 0.8rem;
+            font-weight: 500;
+            color: #2F2F2F;
+          }
+        }
+
+        &_right {
+          border: 1px solid black;
+          border-radius: 50px;
+        }
+      }
+
+      &_bottom {
+        font-size: 1rem;
+        font-weight: 700;
+        text-align: end;
+      }
+    }
+
+    &_part2 {
+      position: relative;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      flex-direction: row;
+      border: 1px solid rgba(47,47,47,0.3);
+      border-radius: 5px;
+      padding: 0.8rem;
+
+      &_img {
+        width: 15%;
+        height: 15%;
+      }
+
+      &_cb {
+        display: flex;
+        flex-direction: column;
+
+        &_text1 {
+          font-size: 0.9rem;
+            font-weight: 600;
+            color: #2F2F2F;
+        }
+
+        &_text2 {
+          font-size: 0.8rem;
+            font-weight: 500;
+            color: #2F2F2F;
+        }
+      }
+    }
+  }
+
+
+  &_saving {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-bottom: 3rem;
+
+    &_title {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+
+      &_text, &_price {
+        font-size: 1rem;
+        font-weight: 600;
+        color: #927300;
+      }
+
+      &_price {
+        padding-right: 20%;
+      }
+      
+    }
+
+    &_part1 {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      border: 1px solid rgba(47,47,47,0.3);
+      border-radius: 5px;
+      padding: 1rem;
+
+      &_color {
+        position: absolute;
+        top: 0;
+        left: 0;
+        background-color: #927300;
+        width: 0.3rem;
+        height: 100%;
+      }
+
+      &_top {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+
+        &_left {
+          h4 {
+            font-size: 0.9rem;
+            font-weight: 700;
+          }
+          span {
+            font-size: 0.8rem;
+            font-weight: 500;
+            color: #2F2F2F;
+          }
+        }
+
+        &_right {
+          color: red;
+          border: 1px solid red;
+          border-radius: 50px;
+        }
+      }
+
+      &_price {
+        font-size: 1rem;
+        font-weight: 700;
+        text-align: end;
+      }
+
+      &_progress {
+        height: 1vh;
+        width: 100%;
+        border-radius: 10px;
+        background-color: rgba(47,47,47,0.3);
+        margin-top: 0.5rem;
+      }
+
+      &_bottom {
+        font-size: 0.8rem;
+        font-weight: 500;
+        color: #2F2F2F;
+        text-align: end;
+        margin: 0.5rem 1rem 0 0;
+      }
+    }
+
+    &_part2 {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      border: 1px solid rgba(47,47,47,0.3);
+      border-radius: 5px;
+      padding: 1rem;
+
+      &_color {
+        position: absolute;
+        top: 0;
+        left: 0;
+        background-color: #927300;
+        width: 0.3rem;
+        height: 100%;
+      }
+
+      &_top {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+
+        &_left {
+          h4 {
+            font-size: 0.9rem;
+            font-weight: 700;
+          }
+          span {
+            font-size: 0.8rem;
+            font-weight: 500;
+            color: #2F2F2F;
+          }
+        }
+
+        &_right {
+          color: black;
+          border: 1px solid black;
+          border-radius: 50px;
+        }
+      }
+
+      &_price {
+        font-size: 1rem;
+        font-weight: 700;
+        text-align: end;
+      }
+
+      &_progress {
+        height: 1vh;
+        width: 100%;
+        border-radius: 10px;
+        background-color: rgba(47,47,47,0.3);
+        margin-top: 0.5rem;
+      }
+
+      &_bottom {
+        font-size: 0.8rem;
+        font-weight: 500;
+        color: #2F2F2F;
+        text-align: end;
+        margin: 0.5rem 1rem 0 0;
+      }
+    }
+  }
+}
