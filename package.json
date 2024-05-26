@@ -1,9 +1,12 @@
 {
+  "homepage": "https://lunafouet009.github.io/SocieteGeneral_Profil",
   "name": "sg",
   "private": true,
   "version": "0.0.0",
   "type": "module",
   "scripts": {
+    "predeploy": "pnpm build",
+    "deploy": "gh-pages -d dist",
     "dev": "vite",
     "build": "tsc && vite build",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
@@ -12,6 +15,7 @@
   "dependencies": {
     "@reduxjs/toolkit": "^2.2.4",
     "feather-icons": "^4.29.2",
+    "gh-pages": "^6.1.1",
     "react": "^18.2.0",
     "react-big-calendar": "^1.12.2",
     "react-dom": "^18.2.0",
